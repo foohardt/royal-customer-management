@@ -1,9 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+// Require customer model
+const customer = require('../models/customer');
+
+// GET customer list
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  // Do something
 });
 
 module.exports = router;
