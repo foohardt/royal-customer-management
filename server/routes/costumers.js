@@ -10,7 +10,10 @@ router.get('/', (req, res, next) => {
     const lastName = req.query.nachname;
 
     Customer.findOne({ 'name.last': lastName })
-      .then(customer => {
+      .then(data => {
+        let customer =[];
+        customer.push(data);
+
         res.json(customer);
       })
       .catch(err => next(err));
