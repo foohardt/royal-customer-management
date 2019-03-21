@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
       })
       .catch(err => next(err));
   } else {
-    
+
     Customer.find()
       .then(customers => {
         res.json(customers);
@@ -35,15 +35,53 @@ router.get('/:id', (req, res, next) => {
     .catch(err => next(err));
 });
 
-// GET list of customers by query for lastname  ?nachname=xxx
+// POST new customer
+router.post('/', (req, res, next) => {
+  const body = req.body;
 
-router.get('/', (req, res, next) => {
-  const lastName = req.query.nachname;
-  console.log("LASTNAME", lastName)
+  const customer = {
+    name: {
+      first: body.nameFirst,
+      last: body.nameLast,
+    },
+    sex: body.sex,
+    adress: {
+      street: body.adressStreet,
+      number: body.adressNumber,
+      city: body.adressCity,
+      zipcode: body.adressZipcode,
+    }
+  };
+
+  new Customer(customer)
+    .save()
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch(err => next(err));
 });
 
-// POST new customer
-// PUT edit customer by id /:id
-// DELETE customer by id /:id
+// PUT edit customer by id 
+router.put('/:id', (req, res, next) => {
+  const id = req.params.id;
+  const body = req.body;
+
+  Customer.findByIdAndUpdate(id, body)
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch(err => next(err));
+})
+
+// DELETE customer by id 
+router.delete('/:id', (req, res, next) => {
+  const id = req.params.id;
+
+  Customer.findByIdAndRemove(id)
+    .then(() => {
+      res.redirect('/')
+    })
+    .catch(err => next(err));
+})
 
 module.exports = router;
