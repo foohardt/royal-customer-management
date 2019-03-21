@@ -6,32 +6,62 @@ mongoose.connect(`mongodb://localhost/${dbName}`);
 
 const firstCustomers = [
   {
-    lastname: "Matthäus",
-    firstname: "Lothar",
-    sex: "male", // TODO ENUM
-    street: "Finkenweg 7",
-    zipcode: "01815",
-    city: "",
+    name: {
+      first: 'Lothar',
+      last: 'Mätthaus',
+    },
+    sex: 2,
+    adress: {
+      street: 'Finkenweg',
+      number: 7,
+      city: 'Hamburg',
+      zipcode: 0815,
+    },
   },
   {
-    lastname: "Matthäus",
-    firstname: "Lothar",
-    sex: "male", // TODO ENUM
-    street: "Finkenweg 7",
-    zipcode: "01815",
-    city: "",
+    name: {
+      first: 'Florian',
+      last: 'Silbereisen',
+    },
+    sex: 2,
+    adress: {
+      street: 'Neverland-Ranch',
+      number: 26,
+      city: 'Frankfurt-Main',
+      zipcode: 0815,
+    },
   },
   {
-    name: "2 Pac",
-    occupation: "singer",
-    catchPhrase: "Fuck the world"
-  }
+    name: {
+      first: 'Gina-Lisa',
+      last: 'Lohfink',
+    },
+    sex: 1,
+    adress: {
+      street: 'Mallorca-Weg',
+      number: 10,
+      city: 'Frankfurt-Oder',
+      zipcode: 0815,
+    },
+  },
+  {
+    name: {
+      first: 'Michaela',
+      last: 'Schäfer',
+    },
+    sex: 1,
+    adress: {
+      street: 'Hauptstraße',
+      number: 68,
+      zipcode: 0815,
+    },
+  },
 ];
 
 Customer.deleteMany()
   .then(() => Customer.create(firstCustomers))
   .then(() => {
-    console.log("Db seeded.")
+    console.log('Customer db bootstrapped')
     mongoose.connection.close();
   })
   .catch(err => {

@@ -2,11 +2,15 @@ var express = require('express');
 var router = express.Router();
 
 // Require customer model
-const customer = require('../models/customer');
+const Customer = require('../models/customer');
 
-// GET customer list
-router.get('/', function(req, res, next) {
-  // Do something
+// GET list of all customers
+router.get('/', (req, res, next) => {
+  Customer.find()
+    .then(customers => {
+      res.json(customers)
+    })
+    .catch(err => next(err));
 });
 
 module.exports = router;

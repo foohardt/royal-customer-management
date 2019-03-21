@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 app.use('/api', indexRouter);
-app.use('/api/customer', costumerRouter);
+app.use('/api/customers', costumerRouter);
 
 // Catch 404 error for any route that start with "/api"
 app.use('/api/*', (req, res, next) => {
