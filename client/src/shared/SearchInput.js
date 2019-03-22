@@ -28,8 +28,7 @@ class SearchInput extends React.PureComponent {
           type='search'
           placeholder='Nach Nachname suchen'
           onChange={(e) => this.props.onChange(e)}
-
-        />
+          />
         <button
           className="btn btn-primary"
           onClick={this.triggerSearch}

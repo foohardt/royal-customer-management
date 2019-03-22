@@ -13,7 +13,6 @@ class CustomerList extends React.Component {
     }
 
     this.refresh = this.refresh.bind(this);
-    this.retrieveList = this.retrieveList.bind(this);
     this.setQuery = this.setQuery.bind(this);
   }
 
@@ -62,7 +61,6 @@ class CustomerList extends React.Component {
 
     const mappedList = this.state.list.map((x, i) =>
       <tr key={`custommer-table-row-${i}`}>
-        <th scope='row'>{i}</th>
         <td>{x.name.first}</td>
         <td>{x.name.last}</td>
         <td>{x.adress.city}</td>
@@ -80,7 +78,6 @@ class CustomerList extends React.Component {
       <table className='table table-striped'>
         <thead>
           <tr>
-            <th>#</th>
             <th>Vorname</th>
             <th>Nachname</th>
             <th>Stadt</th>
