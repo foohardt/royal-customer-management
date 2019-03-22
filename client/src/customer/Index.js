@@ -13,6 +13,16 @@ class CustomerIndex extends React.Component {
     this.renderEdit = this.renderEdit.bind(this);
   }
 
+  render() {
+    return (
+      <Switch>
+        <Route exact path='/kunden/:id' render={(props) => this.renderDetail(props)} />
+        <Route exact path='/kunden/bearbeiten/:id' render={(props) => this.renderEdit(props)} />
+        <Route component={List} />
+      </Switch>
+    );
+  }
+
   renderDetail(props) {
     const id = props.match.params.id;
 
@@ -32,19 +42,6 @@ class CustomerIndex extends React.Component {
       />
     );
   }
-
-  render() {
-    return (
-      <Switch>
-        <Route exact path='/kunden/:id' render={(props) => this.renderDetail(props)} />
-        <Route exact path='/kunden/bearbeiten/:id' render={(props) => this.renderEdit(props)} />
-        <Route component={List} />
-      </Switch>
-    );
-  }
-
-
-
 }
 
 export default CustomerIndex;
