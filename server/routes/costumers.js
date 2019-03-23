@@ -67,9 +67,9 @@ router.post('/', (req, res, next) => {
 // PUT customer update by id 
 router.put('/:id', (req, res, next) => {
   const id = req.params.id;
-  const body = req.body;
-
-  Customer.findByIdAndUpdate(id, body)
+  const customer = req.body;
+  console.log("----->PUT customer", customer, id)
+  Customer.findByIdAndUpdate(id, customer)
     .then(() => {
       res.redirect('/')
     })

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 import SearchInput from '../shared/SearchInput';
+import TaskPanel from '../shared/TaskPanel';
 
 class CustomerList extends React.Component {
   constructor(props) {
@@ -44,6 +45,14 @@ class CustomerList extends React.Component {
 
     return (
       <div className='container'>
+        <TaskPanel>
+          <Link
+            className="btn btn-primary"
+            to="/kunden/erstellen"
+          >
+            Erstellen
+          </Link>
+        </TaskPanel>
         <SearchInput 
           onChange={this.setQuery}
           onSearch={this.refresh}

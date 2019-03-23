@@ -67,10 +67,10 @@ class CustomerDetail extends React.Component {
     const state = this.state;
 
     return (
-      <div class='card'>
-        <div class='card-header'>Name</div>
-        <div class='card-body'>
-          <dl class='row'>
+      <div className='card'>
+        <div className='card-header'>Name</div>
+        <div className='card-body'>
+          <dl className='row'>
             <dt className='col-sm-3'>Vorname: </dt>
             <dd className='col-sm-9'>{state.nameFirst}</dd>
             <dt className='col-sm-3'>Nachname: </dt>
@@ -87,10 +87,10 @@ class CustomerDetail extends React.Component {
     const state = this.state;
 
     return (
-      <div class='card'>
-        <div class='card-header'>Anschrift</div>
-        <div class='card-body'>
-          <dl class='row'>
+      <div className='card'>
+        <div className='card-header'>Anschrift</div>
+        <div className='card-body'>
+          <dl className='row'>
             <dt className='col-sm-3'>Straße: </dt>
             <dd className='col-sm-9'>{state.street} {state.number}</dd>
             <dt className='col-sm-3'>Stadt: </dt>

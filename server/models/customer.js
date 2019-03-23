@@ -7,8 +7,7 @@ const CustomerSchema = new mongoose.Schema({
   },
   sex: {
     type: Number,
-    enum: [0, 1, 2],
-    default: 0,
+    enum: [1, 2],
   },
   adress: {
     street: String,
