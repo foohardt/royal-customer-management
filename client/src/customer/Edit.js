@@ -1,6 +1,8 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import Form from '../shared/Form';
+
 class Edit extends React.Component {
   constructor(props) {
     super(props)
@@ -121,109 +123,26 @@ class Edit extends React.Component {
     }
 
     const state = this.state;
-
-    return (
-      <React.Fragment>
+    
+    return (  
+            <React.Fragment>
         {this.redirect()}
-
-        <form onSubmit={this.handleSubmit}>
-          <div className='form-row'>
-            <div className='form-group col-md-5'>
-              <label htmlFor='nameFirst'>Vorname</label>
-              <input
-                type='text'
-                className='form-control'
-                id='nameFirst'
-                value={state.nameFirst}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-            <div className='form-group col-md-5'>
-              <label htmlFor='nameLast'>Nachname</label>
-              <input
-                type='text'
-                className='form-control'
-                id='nameLast'
-                value={state.nameLast}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-            <div className='form-group col-md-2'>
-              <label htmlFor='sex'>Geschlecht</label>
-              <select
-                id='sex'
-                className='form-control'
-                required={true}
-              >
-                <option select="">Bitte wählen</option>
-                <option value={1}>Weiblich</option>
-                <option value={2}>Männlich</option>
-              </select>
-            </div>
-          </div>
-          <div className='form-row'>
-            <div className='form-group col-md-10'>
-              <label htmlFor='street'>Straße</label>
-              <input
-                type='text'
-                className='form-control'
-                id='street'
-                value={state.street}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-            <div className='form-group col-md-2'>
-              <label htmlFor='number'>Hausnummer</label>
-              <input
-                type='number'
-                className='form-control'
-                id='number'
-                value={state.number}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-          </div>
-          <div className='form-row'>
-            <div className='form-group col-md-6'>
-              <label htmlFor='city'>Stadt</label>
-              <input
-                type='text'
-                className='form-control'
-                id='city'
-                value={state.city}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-            <div className='form-group col-md-2'>
-              <label htmlFor='zipcode'>Postleitzahl</label>
-              <input
-                type='number'
-                className='form-control'
-                id='zipcode'
-                value={state.zipcode}
-                onChange={this.handleChange}
-                required={true}
-              />
-            </div>
-          </div>
-          <button
-            type='submit'
-            className='btn btn-primary'
-          >Kundendaten aktualisieren
-        </button>
-          <button
-            className='btn btn-danger'
-            onClick={this.delete}
-          >
-            Kundendaten löschen
-        </button>
-        </form>
+        <Form
+          id={state.id}
+          nameFirst={state.nameFirst}
+          nameLast={state.nameLast}
+          sex={state.sex}
+          street={state.street}
+          number={state.number}
+          city={state.city}
+          zipcode={state.zipcode}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          handleDelete={this.delete}
+        />
       </React.Fragment>
+
+ 
 
     );
   }

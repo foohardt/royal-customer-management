@@ -53,6 +53,20 @@ const firstCustomers = [
     adress: {
       street: 'Hauptstraße',
       number: 68,
+      city: 'Hamburg',
+      zipcode: 0815,
+    },
+  },
+  {
+    name: {
+      first: 'Donald',
+      last: 'Duck',
+    },
+    sex: 2,
+    adress: {
+      street: 'Quakstraße',
+      number: 23,
+      city: 'Entenhausen',
       zipcode: 0815,
     },
   },
