@@ -10,7 +10,7 @@ class CustomerList extends React.Component {
 
     this.state = {
       list: [],
-      query: "",
+      query: '',
     }
 
     this.refresh = this.refresh.bind(this);
@@ -47,8 +47,8 @@ class CustomerList extends React.Component {
       <div className='container'>
         <TaskPanel>
           <Link
-            className="btn btn-primary"
-            to="/bearbeiten"
+            className='btn btn-primary'
+            to='/bearbeiten'
           >
             Erstellen
           </Link>

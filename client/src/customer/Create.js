@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class Create extends React.Component {
   constructor(props) {
@@ -6,12 +7,14 @@ class Create extends React.Component {
 
     this.state = {
       sex: 0,
-      nameFirst: "",
-      nameLast: "",
-      street: "",
-      number: "",
-      city: "",
-      zipcode: "",
+      nameFirst: '',
+      nameLast: '',
+      street: '',
+      number: '',
+      city: '',
+      zipcode: '',
+
+      isSaved: false,
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,7 +32,7 @@ class Create extends React.Component {
 
   async handleSubmit(e) {
     e.preventDefault();
-    
+
     const state = this.state;
     const customer = {
       name: {
@@ -54,6 +57,20 @@ class Create extends React.Component {
       },
       body: JSON.stringify(customer)
     });
+
+    this.setState({
+      isSaved: true,
+    })
+  }
+
+  redirect() {
+    const isSaved = this.state.isSaved;
+
+    if (isSaved) {
+      return (
+        <Redirect to='/' />
+      );
+    }
   }
 
   render() {
@@ -69,83 +86,87 @@ class Create extends React.Component {
     const state = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <div className='form-row'>
-          <div className='form-group col-md-5'>
-            <label htmlFor='nameFirst'>Vorname</label>
-            <input
-              type='text'
-              className='form-control'
-              id='nameFirst'
-              value={state.nameFirst}
-              onChange={this.handleChange}
-            />
+      <React.Fragment>
+        {this.redirect()}
+
+        <form onSubmit={this.handleSubmit}>
+          <div className='form-row'>
+            <div className='form-group col-md-5'>
+              <label htmlFor='nameFirst'>Vorname</label>
+              <input
+                type='text'
+                className='form-control'
+                id='nameFirst'
+                value={state.nameFirst}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className='form-group col-md-5'>
+              <label htmlFor='nameLast'>Nachname</label>
+              <input
+                type='text'
+                className='form-control'
+                id='nameLast'
+                value={state.nameLast}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className='form-group col-md-2'>
+              <label htmlFor='sex'>Geschlecht</label>
+              <select id='sex' className='form-control'>
+                <option select={true}>Bitte wählen</option>
+                <option value={1}>Weiblich</option>
+                <option value={2}>Männlich</option>
+              </select>
+            </div>
           </div>
-          <div className='form-group col-md-5'>
-            <label htmlFor='nameLast'>Nachname</label>
-            <input
-              type='text'
-              className='form-control'
-              id='nameLast'
-              value={state.nameLast}
-              onChange={this.handleChange}
-            />
+          <div className='form-row'>
+            <div className='form-group col-md-10'>
+              <label htmlFor='street'>Straße</label>
+              <input
+                type='text'
+                className='form-control'
+                id='street'
+                value={state.street}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className='form-group col-md-2'>
+              <label htmlFor='number'>Hausnummer</label>
+              <input
+                type='number'
+                className='form-control'
+                id='number'
+                value={state.number}
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
-          <div className='form-group col-md-2'>
-            <label htmlFor='sex'>Geschlecht</label>
-            <select id='sex' className='form-control'>
-              <option select={true}>Bitte wählen</option>
-              <option value={1}>Weiblich</option>
-              <option value={2}>Männlich</option>
-            </select>
+          <div className='form-row'>
+            <div className='form-group col-md-6'>
+              <label htmlFor='city'>Stadt</label>
+              <input
+                type='text'
+                className='form-control'
+                id='city'
+                value={state.city}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className='form-group col-md-2'>
+              <label htmlFor='zipcode'>Postleitzahl</label>
+              <input
+                type='number'
+                className='form-control'
+                id='zipcode'
+                value={state.zipcode}
+                onChange={this.handleChange}
+              />
+            </div>
           </div>
-        </div>
-        <div className="form-row">
-          <div className='form-group col-md-10'>
-            <label htmlFor='street'>Straße</label>
-            <input
-              type='text'
-              className='form-control'
-              id='street'
-              value={state.street}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className='form-group col-md-2'>
-            <label htmlFor='number'>Hausnummer</label>
-            <input
-              type='number'
-              className='form-control'
-              id='number'
-              value={state.number}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        <div className='form-row'>
-          <div className='form-group col-md-6'>
-            <label htmlFor='city'>Stadt</label>
-            <input
-              type='text'
-              className='form-control'
-              id='city'
-              value={state.city}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className='form-group col-md-2'>
-            <label htmlFor='zipcode'>Postleitzahl</label>
-            <input
-              type='number'
-              className='form-control'
-              id='zipcode'
-              value={state.zipcode}
-              onChange={this.handleChange}
-            />
-          </div>
-        </div>
-        <button type='submit' className='btn btn-primary'>Absenden</button>
-      </form>
+          <button type='submit' className='btn btn-primary'>Absenden</button>
+        </form>
+      </React.Fragment>
     );
   }
 }

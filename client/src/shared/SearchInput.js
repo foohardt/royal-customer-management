@@ -21,7 +21,7 @@ class SearchInput extends React.PureComponent {
           onChange={(e) => this.props.onChange(e)}
           />
         <button
-          className="btn btn-primary"
+          className='btn btn-primary'
           onClick={this.triggerSearch}
         >
           Suche
