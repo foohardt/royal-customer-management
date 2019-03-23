@@ -48,7 +48,7 @@ class CustomerList extends React.Component {
         <TaskPanel>
           <Link
             className="btn btn-primary"
-            to="/kunden/erstellen"
+            to="/bearbeiten"
           >
             Erstellen
           </Link>
@@ -75,7 +75,7 @@ class CustomerList extends React.Component {
         <td>{x.adress.city}</td>
         <td>
           <Link
-            to={`/kunden/${x._id}`} 
+            to={`/bearbeiten/${x._id}`} 
             className='btn btn-primary'>
             Anzeigen
           </Link>

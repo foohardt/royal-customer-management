@@ -15,7 +15,7 @@ class App extends React.Component {
   renderContent() {
     return (
       <Switch>
-        <Route path="/kunden" render={this.renderCustomers} />
+        <Route path="/" render={this.renderCustomers} />
       </Switch>
     );
   }

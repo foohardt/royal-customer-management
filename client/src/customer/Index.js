@@ -15,11 +15,11 @@ class CustomerIndex extends React.Component {
   }
 
   render() {
+         //   <Route path='/kunden/:id' render={(props) => this.renderDetail(props)} />
     return (
       <Switch>
-        <Route exact path='/kunden/:id' render={(props) => this.renderDetail(props)} />
-        <Route exact path='/kunden/bearbeiten/:id' render={(props) => this.renderEdit(props)} />
-        <Route exact path='/kunden/erstellen' render={() => this.renderCreate()} />
+        <Route exact path='/bearbeiten/:id' render={(props) => this.renderEdit(props)} />
+        <Route exact path='/bearbeiten' render={this.renderCreate} />
         <Route component={List} />
       </Switch>
     );

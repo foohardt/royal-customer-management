@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 
     Customer.findOne({ 'name.last': lastName })
       .then(data => {
-        let customer =[];
+        let customer = [];
         customer.push(data);
 
         res.json(customer);
@@ -40,21 +40,7 @@ router.get('/:id', (req, res, next) => {
 
 // POST new customer
 router.post('/', (req, res, next) => {
-  const body = req.body;
-
-  const customer = {
-    name: {
-      first: body.nameFirst,
-      last: body.nameLast,
-    },
-    sex: body.sex,
-    adress: {
-      street: body.adressStreet,
-      number: body.adressNumber,
-      city: body.adressCity,
-      zipcode: body.adressZipcode,
-    }
-  };
+  const customer = req.body;
 
   new Customer(customer)
     .save()
@@ -68,7 +54,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id', (req, res, next) => {
   const id = req.params.id;
   const customer = req.body;
-  console.log("----->PUT customer", customer, id)
+
   Customer.findByIdAndUpdate(id, customer)
     .then(() => {
       res.redirect('/')

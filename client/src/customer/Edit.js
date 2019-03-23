@@ -4,7 +4,6 @@ class Edit extends React.Component {
   constructor(props) {
     super(props)
 
-
     this.getCustomer = this.getCustomer.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -25,7 +24,7 @@ class Edit extends React.Component {
       number: customer.adress.number,
       city: customer.adress.city,
       zipcode: customer.adress.zipcode,
-    })
+    });
   }
 
   handleChange(e) {
@@ -87,7 +86,7 @@ class Edit extends React.Component {
     }
 
     const state = this.state;
-    console.log("CT", state)
+    
     return (
       <form onSubmit={this.handleSubmit}>
         <div className='form-row'>
