@@ -136,6 +136,7 @@ class Edit extends React.Component {
                 id='nameFirst'
                 value={state.nameFirst}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-5'>
@@ -146,12 +147,17 @@ class Edit extends React.Component {
                 id='nameLast'
                 value={state.nameLast}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
               <label htmlFor='sex'>Geschlecht</label>
-              <select id='sex' className='form-control'>
-                <option select={true}>Bitte wählen</option>
+              <select
+                id='sex'
+                className='form-control'
+                required={true}
+              >
+                <option select="">Bitte wählen</option>
                 <option value={1}>Weiblich</option>
                 <option value={2}>Männlich</option>
               </select>
@@ -166,6 +172,7 @@ class Edit extends React.Component {
                 id='street'
                 value={state.street}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
@@ -176,6 +183,7 @@ class Edit extends React.Component {
                 id='number'
                 value={state.number}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
           </div>
@@ -188,6 +196,7 @@ class Edit extends React.Component {
                 id='city'
                 value={state.city}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
@@ -198,6 +207,7 @@ class Edit extends React.Component {
                 id='zipcode'
                 value={state.zipcode}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
           </div>

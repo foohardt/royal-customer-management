@@ -89,7 +89,7 @@ class Create extends React.Component {
       <React.Fragment>
         {this.redirect()}
 
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleSubmit} >
           <div className='form-row'>
             <div className='form-group col-md-5'>
               <label htmlFor='nameFirst'>Vorname</label>
@@ -99,6 +99,7 @@ class Create extends React.Component {
                 id='nameFirst'
                 value={state.nameFirst}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-5'>
@@ -109,12 +110,17 @@ class Create extends React.Component {
                 id='nameLast'
                 value={state.nameLast}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
               <label htmlFor='sex'>Geschlecht</label>
-              <select id='sex' className='form-control'>
-                <option select={true}>Bitte wählen</option>
+              <select
+                className='form-control'
+                id='sex'
+                required
+              >
+                <option value="">Bitte wählen</option>
                 <option value={1}>Weiblich</option>
                 <option value={2}>Männlich</option>
               </select>
@@ -129,6 +135,7 @@ class Create extends React.Component {
                 id='street'
                 value={state.street}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
@@ -139,6 +146,7 @@ class Create extends React.Component {
                 id='number'
                 value={state.number}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
           </div>
@@ -151,6 +159,7 @@ class Create extends React.Component {
                 id='city'
                 value={state.city}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
             <div className='form-group col-md-2'>
@@ -161,6 +170,7 @@ class Create extends React.Component {
                 id='zipcode'
                 value={state.zipcode}
                 onChange={this.handleChange}
+                required={true}
               />
             </div>
           </div>

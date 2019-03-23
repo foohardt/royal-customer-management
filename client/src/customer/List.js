@@ -50,7 +50,7 @@ class CustomerList extends React.Component {
             className='btn btn-primary'
             to='/bearbeiten'
           >
-            Erstellen
+            Kunden anlegen
           </Link>
         </TaskPanel>
         <SearchInput 
