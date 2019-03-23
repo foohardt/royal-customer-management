@@ -13,7 +13,7 @@ class SearchInput extends React.PureComponent {
 
   render() {
     return (
-      <div className='input-group from-group'>
+      <div className='input-group from-group mb-3'>
         <input
           className='form-control'
           type='search'

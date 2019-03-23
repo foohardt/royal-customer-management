@@ -5,7 +5,7 @@ class TasksPanel extends React.PureComponent {
 
   render() {
     return (
-      <div className='card'>
+      <div className='card mb-3'>
         <div className='card-header'>Aufgaben</div>
         <div className='card-body' ref={this.panel}>
           {this.props.children}

@@ -111,7 +111,10 @@ class Edit extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1>Bearbeiten</h1>
+        <div className="page-header">
+        <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
+          <h1>Kunden bearbeiten</h1>
+        </div>
         {this.renderForm()}
       </div>
     );
@@ -123,9 +126,9 @@ class Edit extends React.Component {
     }
 
     const state = this.state;
-    
-    return (  
-            <React.Fragment>
+
+    return (
+      <React.Fragment>
         {this.redirect()}
         <Form
           id={state.id}
@@ -142,7 +145,7 @@ class Edit extends React.Component {
         />
       </React.Fragment>
 
- 
+
 
     );
   }

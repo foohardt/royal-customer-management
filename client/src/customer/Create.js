@@ -78,7 +78,10 @@ class Create extends React.Component {
   render() {
     return (
       <div className='container'>
-        <h1>Erstellen</h1>
+        <div className='page-header'>
+        <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
+          <h1>Kunden anlegen</h1>
+        </div>
         {this.renderForm()}
       </div>
     );

@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 class CustomerForm extends React.PureComponent {
   render() {
@@ -14,7 +15,7 @@ class CustomerForm extends React.PureComponent {
               className='form-control'
               id='nameFirst'
               value={props.nameFirst}
-              onChange={(e) => props.handleChange(e)}
+              onChange={props.handleChange}
               required={true}
             />
           </div>
@@ -38,7 +39,7 @@ class CustomerForm extends React.PureComponent {
               onChange={props.handleChange}
               required={true}
             >
-              <option value="">Bitte wählen..</option>
+              <option value=''>Bitte wählen..</option>
               <option value={1}>Weiblich</option>
               <option value={2}>Männlich</option>
             </select>
@@ -92,8 +93,17 @@ class CustomerForm extends React.PureComponent {
             />
           </div>
         </div>
-        <button type='submit' className='btn btn-primary'>Absenden</button>
+        <button 
+          type='submit' 
+          className='btn btn-primary mr-2'
+        >Absenden
+        </button>
         {this.renderDeleteButton()}
+        <Link 
+          to='/'
+          className='btn btn-secondary'>
+          Abbrechen
+        </Link>
       </form>
     );
   }
@@ -107,7 +117,7 @@ class CustomerForm extends React.PureComponent {
 
     return (
       <button
-        className='btn btn-danger'
+        className='btn btn-danger mr-2'
         onClick={this.props.handleDelete}
       >
         Kundendaten löschen

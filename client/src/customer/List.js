@@ -24,7 +24,7 @@ class CustomerList extends React.Component {
     const list = await response.json()
 
     if (!list) {
-      console.log("!list", list)
+      console.log('!list', list)
       return;
     }
 
@@ -50,6 +50,11 @@ class CustomerList extends React.Component {
 
     return (
       <div className='container'>
+        <div className='page-header'>
+          <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
+          <h1>Customer Management</h1>
+        </div>
+
         <TaskPanel>
           <Link
             className='btn btn-primary'
@@ -73,8 +78,9 @@ class CustomerList extends React.Component {
 
     if (!list[0]) {
       return (
-        <div class="alert alert-danger text-center" role="alert">
-          Zu dem angegebenen Suchbgeriff konnte kein Ergebnis gefunden werden. Bitte suchen Sie erneut.
+        <div className='alert alert-danger text-center' role='alert'>
+          Zu dem angegebenen Suchbgeriff konnte kein Ergebnis gefunden werden. Bitte beachten Sie Groß- und Kleinschreibung.
+          Oder führen sie eine leere Suche aus um eine Liste aller Ergebnisse zu erhalten.
       </div>
       )
     }
