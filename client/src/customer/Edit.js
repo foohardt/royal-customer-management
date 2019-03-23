@@ -4,9 +4,19 @@ class Edit extends React.Component {
   constructor(props) {
     super(props)
 
+    this.delete = this.delete.bind(this);
     this.getCustomer = this.getCustomer.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  async delete() {
+    const id = this.props.id;
+
+    const url = `http://localhost:3030/api/kunden/${id}`;
+    await fetch(url, {
+      method: 'DELETE',
+    });
   }
 
   async getCustomer() {
@@ -163,7 +173,17 @@ class Edit extends React.Component {
             />
           </div>
         </div>
-        <button type='submit' className='btn btn-primary'>Absenden</button>
+        <button 
+          type='submit' 
+          className='btn btn-primary'
+        >Kundendaten aktualisieren
+        </button>
+        <button 
+          className='btn btn-danger'
+          onClick={this.delete}  
+        >
+        Kundendaten löschen
+        </button>
       </form>
     );
   }

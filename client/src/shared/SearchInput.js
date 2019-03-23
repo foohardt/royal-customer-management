@@ -11,15 +11,6 @@ class SearchInput extends React.PureComponent {
     this.props.onSearch();
   }
 
-  handleKeyDown(e) {
-    e.preventDefault()
-
-    if (e.key !== 'Enter') {
-      return;
-    }
-    //onKeyDown={this.handleKeyDown}
-  }
-
   render() {
     return (
       <div className='input-group from-group'>
