@@ -23,6 +23,11 @@ class CustomerList extends React.Component {
     const response = await fetch(`http://localhost:3030/api/kunden?nachname=${query}`)
     const list = await response.json()
 
+    if (!list) {
+      console.log("!list", list)
+      return;
+    }
+
     this.setState({
       list,
     });
@@ -53,7 +58,7 @@ class CustomerList extends React.Component {
             Kunden anlegen
           </Link>
         </TaskPanel>
-        <SearchInput 
+        <SearchInput
           onChange={this.setQuery}
           onSearch={this.refresh}
           query={state.query}
@@ -64,18 +69,24 @@ class CustomerList extends React.Component {
   }
 
   renderList() {
-    if (!this.state.list) {
-      return;
+    const list = this.state.list;
+
+    if (!list[0]) {
+      return (
+        <div class="alert alert-danger text-center" role="alert">
+          Zu dem angegebenen Suchbgeriff konnte kein Ergebnis gefunden werden. Bitte suchen Sie erneut.
+      </div>
+      )
     }
 
-    const mappedList = this.state.list.map((x, i) =>
+    const mappedList = list.map((x, i) =>
       <tr key={`custommer-table-row-${i}`}>
         <td>{x.name.first}</td>
         <td>{x.name.last}</td>
         <td>{x.adress.city}</td>
         <td>
           <Link
-            to={`/bearbeiten/${x._id}`} 
+            to={`/bearbeiten/${x._id}`}
             className='btn btn-primary'>
             Anzeigen
           </Link>
