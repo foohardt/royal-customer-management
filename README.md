@@ -1,5 +1,6 @@
 <h1>Royal-Customer-Management</h1>
-<hr />
+
+<h2>Global Information</h2>
 
 Royal customer management is a fullstack application 
 implementing REST and full CRUD. 
@@ -7,19 +8,23 @@ implementing REST and full CRUD.
 Technologies used:
 
 Server:
-*Node.js
-*Express
-*MongoDB
+<ul>
+  <li>Node.js</li>
+<li>Express</li>
+<li>MongoDB</li>
+</ul>
 
 Client:
-*HTML 
-*CSS
-*Bootstrap
-*Javascript
-*React
+<ul>
+<li>HTML</li> 
+<li>CSS</li>
+<li>Bootstrap</li>
+<li>Javascript</li>
+<li>React</li>
+</ul>
 
 <h2>Setup end Execution</h2>
-<hr />
+
 *Fork and clone this repository
 
 *Install server dependencies with <i>server/npm i</i>
