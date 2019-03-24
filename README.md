@@ -24,13 +24,14 @@ Client:
 </ul>
 
 <h2>Setup end Execution</h2>
+<ul>
+<li>Fork and clone this repository</li>
 
-*Fork and clone this repository
+<li>Install server dependencies with <i>server/npm i</i></li>
+<li>Bootstrap db with node <i>server/bin/seeds.js</i></li>
 
-*Install server dependencies with <i>server/npm i</i>
-*Bootstrap db with node <i>server/bin/seeds.js</i>
+<li>Install client dependencies with <i>client/npm i</i></li>
 
-*Install client dependencies with <i>client/npm i</i>
-
-*Run server on port 3036 with <i>server/nodemon</i> or <i>server/npm start</i>
-*Run client on port 3000 with <i>client/npm start</i>
+<li>Run server on port 3036 with <i>server/nodemon</i> or <i>server/npm start</i></li>
+<li>Run client on port 3000 with <i>client/npm start</i></li>
+</ul>
