@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import FetchError from '../shared/FetchError';
 import Form from '../shared/Form';
 
 class Edit extends React.Component {
@@ -9,6 +10,7 @@ class Edit extends React.Component {
 
     this.state = {
       isDeleted: false,
+      isError: false,
       isSaved: false,
     }
 
@@ -34,19 +36,26 @@ class Edit extends React.Component {
   async getCustomer() {
     const id = this.props.id;
 
-    const response = await fetch(`http://localhost:3030/api/kunden/${id}`)
-    const customer = await response.json();
+    try {
+      const response = await fetch(`http://localhost:3030/api/kunden/${id}`)
+      const customer = await response.json();
 
-    this.setState({
-      id: customer._id,
-      sex: customer.sex,
-      nameFirst: customer.name.first,
-      nameLast: customer.name.last,
-      street: customer.adress.street,
-      number: customer.adress.number,
-      city: customer.adress.city,
-      zipcode: customer.adress.zipcode,
-    });
+      this.setState({
+        id: customer._id,
+        sex: customer.sex,
+        nameFirst: customer.name.first,
+        nameLast: customer.name.last,
+        street: customer.adress.street,
+        number: customer.adress.number,
+        city: customer.adress.city,
+        zipcode: customer.adress.zipcode,
+      });
+
+    } catch {
+      this.setState({
+        isError: true,
+      });
+    }
   }
 
   handleChange(e) {
@@ -78,19 +87,26 @@ class Edit extends React.Component {
       }
     };
 
-    const url = `http://localhost:3030/api/kunden/${id}`;
-    await fetch(url, {
-      method: 'PUT',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(customer)
-    });
+    try {
+      const url = `http://localhost:3030/api/kunden/${id}`;
+      await fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(customer)
+      });
 
-    this.setState({
-      isSaved: true,
-    });
+      this.setState({
+        isSaved: true,
+      });
+
+    } catch {
+      this.setState({
+        isError: true,
+      });
+    }
   }
 
   redirect() {
@@ -112,10 +128,9 @@ class Edit extends React.Component {
     return (
       <div className='container'>
         <div className="page-header">
-        <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
           <h1>Kunden bearbeiten</h1>
         </div>
-        {this.renderForm()}
+        {this.state.isError ? <FetchError />: this.renderForm()}
       </div>
     );
   }
@@ -126,7 +141,6 @@ class Edit extends React.Component {
     }
 
     const state = this.state;
-
     return (
       <React.Fragment>
         {this.redirect()}
@@ -144,9 +158,6 @@ class Edit extends React.Component {
           handleDelete={this.delete}
         />
       </React.Fragment>
-
-
-
     );
   }
 }

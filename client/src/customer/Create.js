@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 
+import FetchError from '../shared/FetchError';
 import Form from '../shared/Form';
 
 class Create extends React.Component {
@@ -16,6 +17,7 @@ class Create extends React.Component {
       city: '',
       zipcode: '',
 
+      isError: false,
       isSaved: false,
     }
 
@@ -50,19 +52,26 @@ class Create extends React.Component {
       }
     };
 
-    const url = `http://localhost:3030/api/kunden/`;
-    await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(customer)
-    });
+    try {
+      const url = `http://localhost:3030/api/kunden/`;
+      await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(customer)
+      });
 
-    this.setState({
-      isSaved: true,
-    })
+      this.setState({
+        isSaved: true,
+      })
+
+    } catch {
+      this.setState({
+        isError: true,
+      });
+    }
   }
 
   redirect() {
@@ -79,10 +88,9 @@ class Create extends React.Component {
     return (
       <div className='container'>
         <div className='page-header'>
-        <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
           <h1>Kunden anlegen</h1>
         </div>
-        {this.renderForm()}
+        {this.state.isError ? <FetchError /> : this.renderForm()}
       </div>
     );
   }

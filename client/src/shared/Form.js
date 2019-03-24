@@ -96,14 +96,14 @@ class CustomerForm extends React.PureComponent {
         <button 
           type='submit' 
           className='btn btn-primary mr-2'
-        >Absenden
+        >Übernehmen
         </button>
-        {this.renderDeleteButton()}
         <Link 
           to='/'
-          className='btn btn-secondary'>
+          className='btn btn-secondary mr-2'>
           Abbrechen
         </Link>
+        {this.renderDeleteButton()}
       </form>
     );
   }

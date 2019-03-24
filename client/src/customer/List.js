@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
 
+import FetchError from '../shared/FetchError';
 import SearchInput from '../shared/SearchInput';
 import TaskPanel from '../shared/TaskPanel';
 
@@ -9,6 +10,7 @@ class CustomerList extends React.Component {
     super(props)
 
     this.state = {
+      isError: false,
       list: [],
       query: '',
     }
@@ -20,17 +22,24 @@ class CustomerList extends React.Component {
   async refresh() {
     const query = this.state.query;
 
-    const response = await fetch(`http://localhost:3030/api/kunden?nachname=${query}`)
-    const list = await response.json()
+    try {
+      const response = await fetch(`http://localhost:3030/api/kunden?nachname=${query}`)
+      const list = await response.json()
 
-    if (!list) {
-      console.log('!list', list)
-      return;
+      if (!list) {
+        console.log('!list', list)
+        return;
+      }
+
+      this.setState({
+        list,
+      });
+
+    } catch {
+      this.setState({
+        isError: true,
+      });
     }
-
-    this.setState({
-      list,
-    });
   }
 
   setQuery(e) {
@@ -51,8 +60,7 @@ class CustomerList extends React.Component {
     return (
       <div className='container'>
         <div className='page-header'>
-          <img src="https://www.autohaus-royal.de/images/logo.png" alt="logo-png"/>
-          <h1>Customer Management</h1>
+          <h1>Royal Customer Management</h1>
         </div>
 
         <TaskPanel>
@@ -68,7 +76,7 @@ class CustomerList extends React.Component {
           onSearch={this.refresh}
           query={state.query}
         />
-        {this.renderList()}
+        {state.isError ? <FetchError /> : this.renderList()}
       </div>
     );
   }
@@ -78,7 +86,7 @@ class CustomerList extends React.Component {
 
     if (!list[0]) {
       return (
-        <div className='alert alert-danger text-center' role='alert'>
+        <div className='alert alert-info text-center' role='alert'>
           Zu dem angegebenen Suchbgeriff konnte kein Ergebnis gefunden werden. Bitte beachten Sie Groß- und Kleinschreibung.
           Oder führen sie eine leere Suche aus um eine Liste aller Ergebnisse zu erhalten.
       </div>
