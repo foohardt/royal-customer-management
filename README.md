@@ -12,6 +12,8 @@ Server:
   <li>Node.js</li>
 <li>Express</li>
 <li>MongoDB</li>
+<li>Mocha</li>
+<li>Chai</li>
 </ul>
 
 Client:
@@ -46,6 +48,6 @@ The backend ist tested with Mocha and Chai. Tests are located in <i>server/test<
 
 Tests can be started with <i>cd server/mocha</i> or <i>cd server/npm run test</i>.
 
-<h3>Clientside testing</h3>
+<h3>Clientside Testing</h3>
 tbd
 

@@ -45,7 +45,7 @@ router.post('/', (req, res, next) => {
   new Customer(customer)
     .save()
     .then(() => {
-      res.redirect('/')
+      res.json('customer created')
     })
     .catch(err => next(err));
 });
@@ -57,8 +57,7 @@ router.put('/:id', (req, res, next) => {
 
   Customer.findByIdAndUpdate(id, customer)
     .then(() => {
-      res.redirect('/')
-    })
+      res.json('customer updated')    })
     .catch(err => next(err));
 })
 
@@ -68,7 +67,7 @@ router.delete('/:id', (req, res, next) => {
 
   Customer.findByIdAndRemove(id)
     .then(() => {
-      res.redirect('/')
+      res.json('customer deleted')
     })
     .catch(err => next(err));
 })
