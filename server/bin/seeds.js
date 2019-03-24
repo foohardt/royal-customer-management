@@ -70,6 +70,58 @@ const firstCustomers = [
       zipcode: 0815,
     },
   },
+  {
+    name: {
+      first: 'Angela',
+      last: 'Merkel',
+    },
+    sex: 1,
+    adress: {
+      street: 'Alle-der-Uckermark',
+      number: 86,
+      city: 'Potsdam',
+      zipcode: 0815,
+    },
+  },
+  {
+    name: {
+      first: 'Daniel',
+      last: 'Düsentrieb',
+    },
+    sex: 2,
+    adress: {
+      street: 'Triebradstraße',
+      number: 17,
+      city: 'Entenhausen',
+      zipcode: 0815,
+    },
+  },
+  {
+    name: {
+      first: 'Donald',
+      last: 'Duck',
+    },
+    sex: 2,
+    adress: {
+      street: 'Quakstraße',
+      number: 23,
+      city: 'Entenhausen',
+      zipcode: 0815,
+    },
+  },
+  {
+    name: {
+      first: 'Berti',
+      last: 'Vogts',
+    },
+    sex: 1,
+    adress: {
+      street: 'Hopfenstraße',
+      number: 15,
+      city: 'München',
+      zipcode: 0815,
+    },
+  },
 ];
 
 Customer.deleteMany()

@@ -1,5 +1,6 @@
 {
   "name": "royal-customer-management",
+  "author": "Jens Erhardt",
   "version": "1.0.0",
   "private": true,
   "scripts": {

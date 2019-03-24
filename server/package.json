@@ -1,9 +1,11 @@
 {
-  "name": "royal-customer-management",
+  "name": "royal-customer-management-server",
+  "author": "Jens Erhardt",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
+    "test": "mocha",
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
@@ -14,5 +16,11 @@
     "express": "~4.16.0",
     "mongoose": "^5.4.19",
     "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "mocha": "^6.0.2",
+    "nodemon": "^1.18.10"
   }
 }

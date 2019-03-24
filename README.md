@@ -35,3 +35,17 @@ Client:
 <li>Run server on port 3036 with <i>server/nodemon</i> or <i>server/npm start</i></li>
 <li>Run client on port 3000 with <i>client/npm start</i></li>
 </ul>
+
+<h2>Unit Testing</h2>
+
+Unit tests will be added successively.
+
+<h3>Server Testing</h3>
+
+The backend ist tested with Mocha and Chai. Tests are located in server/test.
+
+Tests can be started with <i>cd server/moch</i> or <i>cd server/npm run test</i>.
+
+<h3>Client testing</h3>
+tbd
+

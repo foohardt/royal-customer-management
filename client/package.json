@@ -1,6 +1,7 @@
 {
-  "name": "client",
+  "name": "royal-customer-management-client",
   "version": "0.1.0",
+  "author": "Jens Erhardt",
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
