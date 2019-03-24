@@ -42,10 +42,10 @@ Unit tests will be added successively.
 
 <h3>Serverside Testing</h3>
 
-The backend ist tested with Mocha and Chai. Tests are located in <i>server/test</i>.
+The backend is tested with Mocha and Chai. Tests are located in <i>server/test</i>.
 
 Tests can be started with <i>cd server/mocha</i> or <i>cd server/npm run test</i>.
 
-<h3>Clientside testing</h3>
+<h3>Clientside Testing</h3>
 tbd
 
