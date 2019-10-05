@@ -9,12 +9,9 @@ router.get('/', (req, res, next) => {
   if (req.query.nachname) {
     const lastName = req.query.nachname;
 
-    Customer.findOne({ 'name.last': lastName })
+    Customer.find({ 'name.last': lastName })
       .then(data => {
-        let customer = [];
-        customer.push(data);
-
-        res.json(customer);
+        res.json(data);
       })
       .catch(err => next(err));
 
